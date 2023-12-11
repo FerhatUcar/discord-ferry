@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={font.className}>{children}</body>
+        <body className={`${font.className} p-2 bg-gray-800`}>{children}</body>
       </html>
     </ClerkProvider>
   );
