@@ -16,8 +16,9 @@ type FileUploadProps = {
 
 const FileUpload: FC<FileUploadProps> = ({ onChange, value, endpoint }) => {
   const fileType = value?.split(".").pop();
+  const isPdf = value && fileType === "pdf";
 
-  if (value && fileType !== "pdf") {
+  if (!isPdf) {
     return (
       <div className="relative h-20 w-20">
         <Image fill src={value} alt="Upload" className="rounded-full" />
@@ -32,7 +33,7 @@ const FileUpload: FC<FileUploadProps> = ({ onChange, value, endpoint }) => {
     );
   }
 
-  if (value && fileType === "pdf") {
+  if (isPdf) {
     return (
       <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
         <FileIcon className="h-10 w-10 fill-indigo-200 stroke-indigo-400" />
@@ -58,9 +59,7 @@ const FileUpload: FC<FileUploadProps> = ({ onChange, value, endpoint }) => {
   return (
     <UploadDropzone
       endpoint={endpoint}
-      onClientUploadComplete={(res) => {
-        onChange(res?.[0].url);
-      }}
+      onClientUploadComplete={(res) => onChange(res?.[0].url)}
       onUploadError={(error: Error) => console.log(error)}
     />
   );
