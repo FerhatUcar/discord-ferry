@@ -20,12 +20,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <ClerkProvider>
         <html lang="en" suppressHydrationWarning>
           <body
-            className={cn(font.className, "p-5 bg-white dark:bg-[#313338]")}
+            className={cn(font.className, "bg-white dark:bg-[#313338]")}
           >
             <ThemeProvider
               attribute="class"
               defaultTheme="dark"
-              enableSystem
+              enableSystem={false}
               storageKey="discord-ferry"
             >
               {children}
