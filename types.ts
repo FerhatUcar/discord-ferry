@@ -14,3 +14,7 @@ export type NextApiResponseServerIo = NextApiResponse & {
     };
   };
 };
+
+export type MakePropertiesOptional<T> = {
+  [K in keyof T]?: T[K];
+};
