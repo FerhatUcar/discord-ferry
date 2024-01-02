@@ -18,3 +18,7 @@ export type NextApiResponseServerIo = NextApiResponse & {
 export type MakePropertiesOptional<T> = {
   [K in keyof T]?: T[K];
 };
+
+export type PartialKeys<T, K extends keyof T> = {
+  [P in K]?: T[P];
+};
