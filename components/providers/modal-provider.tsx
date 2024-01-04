@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import {
+  CreateChannelModal,
   CreateServerModal,
   DeleteServerModal,
   EditServerModal,
@@ -24,6 +25,7 @@ export const ModalProvider = () => {
       <DeleteServerModal />
       <MembersModal />
       <InviteModal />
+      <CreateChannelModal />
     </>
   );
 };
