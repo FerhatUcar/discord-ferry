@@ -21,9 +21,11 @@ export async function PATCH(
     const server = await db.server.update({
       where: {
         id: params.serverId,
+        // admin cannot leave server itself
         profileId: {
           not: profile.id,
         },
+        // only members can leave server
         members: {
           some: {
             profileId: profile.id,
